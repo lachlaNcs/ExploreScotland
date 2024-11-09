@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Explore Scotland</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="wrapper">
+        <nav>
+            <div class="nav-links">
+                <a href="mapexample.html">Explore Scotland</a>
+                <a href="#">Activities</a>
+                <a href="#">Contact</a>
+            </div>
+            <div class="auth-buttons">
+                <a href="login.html" class="login-btn">Login</a>
+                <a href="register.html" class="register-btn">Register</a>
+            </div>
+        </nav>
+        
+        <div class="login-container">
+            <h2>Login</h2>
+            <form class="login-form">
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit" class="login-btn">Login</button>
+            </form>
+            <p>Don't have an account? <a href="register.html">Register here</a></p>
+        </div>
+        <table id="forecastTable" border="1">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Temperature (°C)</th>
+        <th>Temperature (°F)</th>
+        <th>Summary</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Data will be inserted here -->
+    </tbody>
+  </table>
+    </div>
+    
+    <footer>
+        &copy; 2024 Explore Scotland | Designed by Group 3
+    </footer>
+    
+</body>
+    <script>
+        fetch('https://localhost:7255/WeatherForecast')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok ' + response.statusText);
+            }
+            return response.json(); // Parse the JSON response
+        })
+        .then(data => {
+            // Select the table body
+            const tableBody = document.getElementById('forecastTable').getElementsByTagName('tbody')[0];
+            
+            // Clear any existing rows
+            tableBody.innerHTML = '';
+            
+            // Loop through the data array and create a row for each item
+            data.forEach(forecast => {
+                const row = document.createElement('tr');
+                
+                // Create cells for date, temperature in Celsius and Fahrenheit, and summary
+                const dateCell = document.createElement('td');
+                dateCell.textContent = forecast.date;
+                
+                const tempCCell = document.createElement('td');
+                tempCCell.textContent = forecast.temperatureC + ' °C';
+                
+                const tempFCell = document.createElement('td');
+                tempFCell.textContent = forecast.temperatureF + ' °F';
+                
+                const summaryCell = document.createElement('td');
+                summaryCell.textContent = forecast.summary;
+                
+                // Append cells to the row
+                row.appendChild(dateCell);
+                row.appendChild(tempCCell);
+                row.appendChild(tempFCell);
+                row.appendChild(summaryCell);
+                
+                // Append row to the table body
+                tableBody.appendChild(row);
+            });
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            const table = document.getElementById('forecastTable');
+            table.outerHTML = '<p>Error loading data: ' + error.message + '</p>';
+        });
+        </script>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Scotland</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="wrapper">
+        <nav>
+            <div class="nav-links">
+                <a href="#">Explore Scotland</a>
+                <a href="#">Activities</a>
+                <a href="#">Contact</a>
+            </div>
+            <div class="auth-buttons">
+                <a href="login.html" class="login-btn">Login</a>
+                <a href="register.html" class="register-btn">Register</a>
+            </div>
+        </nav>
+        
+        <div class="container">
+            <div id="map"></div>
+            <div class="info">
+                <h2>Explore Scotland</h2>
+
+                <div class="info-content">
+                    <h3>Glasgow</h3>
+                    <p>Dive into the cultural heart of Scotland with its vibrant architecture.</p>
+                    <div class="carousel">
+                        <div id="glasgowCarousel" class="carousel-container">
+                            <div class="carousel-images" id="glasgowCarouselImages">
+                                <a href="glasgow.html">
+                                <img src="../Images/glasgow/glasgowtest2.jpg" alt="Glasgow Image 1">
+                                </a>
+                                
+                                <img src="../Images/glasgow/glasgow4.avif" alt="Glasgow Image 2">
+                                <img src="../Images/glasgow/glasgow2.jpg" alt="Glasgow Image 3">
+                            </div>
+                            <button class="carousel-button" onclick="changeSlide('glasgow', -1)">&#10094;</button>
+                            <button class="carousel-button" onclick="changeSlide('glasgow', 1)">&#10095;</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-content">
+                    <h3>Edinburgh</h3>
+                    <p>Explore the capital's rich history, including Edinburgh Castle.</p>
+                    <div class="carousel">
+                        <div id="edinburghCarousel" class="carousel-container">
+                            <div class="carousel-images" id="edinburghCarouselImages">
+                                <img src="../Images/edinburgh/edinburgh.png" alt="Edinburgh Image 1">
+                                <img src="../Images/edinburgh/edinburgh2.webp" alt="Edinburgh Image 2">
+                                <img src="../Images/edinburgh/edinburgh3.jpeg" alt="Edinburgh Image 3">
+                            </div>
+                            <button class="carousel-button" onclick="changeSlide('edinburgh', -1)">&#10094;</button>
+                            <button class="carousel-button" onclick="changeSlide('edinburgh', 1)">&#10095;</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        &copy; 2024 Explore Scotland | Designed by Group 3
+    </footer>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="carousel.js"></script>
+    <script src="../Scripts/script.js"></script>
+</body>
+</html>
