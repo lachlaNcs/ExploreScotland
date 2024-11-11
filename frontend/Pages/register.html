@@ -6,6 +6,23 @@
     <title>Register - Explore Scotland</title>
     <link rel="stylesheet" href="../css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Styling for the password toggle button */
+        .password-container {
+            position: relative;
+        }
+
+        .password-toggle {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2em;
+        }
+    </style>
 </head>
 <body>
     <div class="wrapper">
@@ -23,7 +40,8 @@
 
         <div class="login-container">
             <h2>Register</h2>
-            <form class="login-form">
+            <!-- Add onsubmit to form tag to call handleRegister -->
+            <form class="login-form" onsubmit="return handleRegister(event)">
                 <div class="form-group">
                     <label for="username">Username:</label>
                     <input type="text" id="username" name="username" required>
@@ -31,10 +49,27 @@
                 <div class="form-group">
                     <label for="email">Email:</label>
                     <input type="email" id="email" name="email" required>
+                    <p id="email-validation" style="color: red; font-size: 0.9em; display: none;">Please enter a valid email containing "@".</p>
                 </div>
                 <div class="form-group">
                     <label for="password">Password:</label>
-                    <input type="password" id="password" name="password" required>
+                    <div class="password-container">
+                        <input type="password" id="password" name="password" required>
+                        <button type="button" id="toggle-password" class="password-toggle">👁️</button>
+                    </div>
+                    <ul id="validation-list" style="list-style-type: none; padding-left: 0;">
+                        <li id="length-validation" style="color: red;">At least 8 characters</li>
+                        <li id="number-validation" style="color: red;">At least 1 number</li>
+                        <li id="special-validation" style="color: red;">At least 1 special character</li>
+                    </ul>
+                </div>
+                <div class="form-group">
+                    <label for="confirm-password">Re-enter Password:</label>
+                    <div class="password-container">
+                        <input type="password" id="confirm-password" name="confirm-password" required>
+                        <button type="button" id="toggle-confirm-password" class="password-toggle">👁️</button>
+                    </div>
+                    <p id="match-validation" style="color: red; display: none;">Passwords must match</p>
                 </div>
                 <button type="submit" class="login-btn">Register</button>
             </form>
@@ -45,6 +80,82 @@
     <footer>
         &copy; 2024 Explore Scotland | Designed by Group 3
     </footer>
-    <script src="../Scripts/script.js"></script>
+
+    <!-- JavaScript for validation and form handling -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const emailInput = document.getElementById("email");
+            const emailValidation = document.getElementById("email-validation");
+
+            const passwordInput = document.getElementById("password");
+            const confirmPasswordInput = document.getElementById("confirm-password");
+
+            const lengthValidation = document.getElementById("length-validation");
+            const numberValidation = document.getElementById("number-validation");
+            const specialValidation = document.getElementById("special-validation");
+            const matchValidation = document.getElementById("match-validation");
+
+            const togglePasswordButton = document.getElementById("toggle-password");
+            const toggleConfirmPasswordButton = document.getElementById("toggle-confirm-password");
+
+            // Email validation function
+            function validateEmail() {
+                const email = emailInput.value;
+                emailValidation.style.display = email.includes("@") ? "none" : "block";
+            }
+
+            // Password validation function
+            function validatePassword() {
+                const password = passwordInput.value;
+                lengthValidation.style.color = password.length >= 8 ? "green" : "red";
+                numberValidation.style.color = /\d/.test(password) ? "green" : "red";
+                specialValidation.style.color = /[!@#$%^&*(),.?":{}|<>]/.test(password) ? "green" : "red";
+            }
+
+            // Password match validation
+            function validatePasswordMatch() {
+                const passwordsMatch = passwordInput.value === confirmPasswordInput.value && confirmPasswordInput.value !== "";
+                matchValidation.style.color = passwordsMatch ? "green" : "red";
+                matchValidation.textContent = passwordsMatch ? "Passwords match" : "Passwords must match";
+            }
+
+            emailInput.addEventListener("input", validateEmail);
+
+            passwordInput.addEventListener("input", function () {
+                validatePassword();
+                validatePasswordMatch();
+            });
+
+            confirmPasswordInput.addEventListener("input", function () {
+                if (confirmPasswordInput.value !== "") {
+                    matchValidation.style.display = "block";
+                }
+                validatePasswordMatch();
+            });
+
+            // Toggle visibility for password fields on mousedown/up events
+            function togglePasswordVisibility(inputField, isVisible) {
+                inputField.type = isVisible ? "text" : "password";
+            }
+
+            togglePasswordButton.addEventListener("mousedown", () => togglePasswordVisibility(passwordInput, true));
+            togglePasswordButton.addEventListener("mouseup", () => togglePasswordVisibility(passwordInput, false));
+            togglePasswordButton.addEventListener("mouseleave", () => togglePasswordVisibility(passwordInput, false));
+
+            toggleConfirmPasswordButton.addEventListener("mousedown", () => togglePasswordVisibility(confirmPasswordInput, true));
+            toggleConfirmPasswordButton.addEventListener("mouseup", () => togglePasswordVisibility(confirmPasswordInput, false));
+            toggleConfirmPasswordButton.addEventListener("mouseleave", () => togglePasswordVisibility(confirmPasswordInput, false));
+
+            // Redirect to RegisterComplete.html after successful form submission
+            window.handleRegister = function(event) {
+                event.preventDefault(); // Prevent default form submission
+
+                // Perform necessary validation here (if needed)
+
+                // If validation passes, redirect to RegisterComplete.html
+                window.location.href = "RegisterComplete.html";
+            };
+        });
+    </script>
 </body>
 </html>
