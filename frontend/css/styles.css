@@ -559,3 +559,75 @@ body {
         grid-template-columns: 1fr;
     }
 }
+
+/* Global quiz styles */
+
+/* Quiz container */
+.quiz-container {
+    padding: 20px;
+    background-color: #f4f4f9;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    text-align: center;
+    margin: 30px auto;
+    width: 80%;
+    max-width: 600px;
+}
+
+.quiz-title {
+    font-size: 2rem;
+    color: #2c3e50;
+}
+
+/* Quiz section styling */
+.quiz-section {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.quiz-section h3 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.quiz-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    width: 100%;
+}
+
+.quiz-option {
+    background-color: #007BFF;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.quiz-option:hover {
+    background-color: #0056b3;
+}
+
+.quiz-option:active {
+    background-color: #003f7f;
+}
+
+.quiz-feedback {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+}
