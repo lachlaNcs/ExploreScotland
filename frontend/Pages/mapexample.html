@@ -1,74 +1,228 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Explore Scotland</title>
-    <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    section{
+      padding: 60px 0;
+    }
+  </style>
 </head>
 <body>
-    <div class="wrapper">
-        <nav>
-            <div class="nav-links">
-                <a href="#">Explore Scotland</a>
-                <a href="#">Activities</a>
-                <a href="#">Contact</a>
-            </div>
-            <div class="auth-buttons">
-                <a href="login.html" class="login-btn">Login</a>
-                <a href="register.html" class="register-btn">Register</a>
-            </div>
-        </nav>
-        
-        <div class="container">
-            <div id="map"></div>
-            <div class="info">
-                <h2>Explore Scotland</h2>
 
-                <div class="info-content">
-                    <h3>Glasgow</h3>
-                    <p>Dive into the cultural heart of Scotland with its vibrant architecture.</p>
-                    <div class="carousel">
-                        <div id="glasgowCarousel" class="carousel-container">
-                            <div class="carousel-images" id="glasgowCarouselImages">
-                                <a href="glasgow.html">
-                                <img src="../Images/glasgow/glasgowtest2.jpg" alt="Glasgow Image 1">
-                                </a>
-                                
-                                <img src="../Images/glasgow/glasgow4.avif" alt="Glasgow Image 2">
-                                <img src="../Images/glasgow/glasgow2.jpg" alt="Glasgow Image 3">
-                            </div>
-                            <button class="carousel-button" onclick="changeSlide('glasgow', -1)">&#10094;</button>
-                            <button class="carousel-button" onclick="changeSlide('glasgow', 1)">&#10095;</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="info-content">
-                    <h3>Edinburgh</h3>
-                    <p>Explore the capital's rich history, including Edinburgh Castle.</p>
-                    <div class="carousel">
-                        <div id="edinburghCarousel" class="carousel-container">
-                            <div class="carousel-images" id="edinburghCarouselImages">
-                                <img src="../Images/edinburgh/edinburgh.png" alt="Edinburgh Image 1">
-                                <img src="../Images/edinburgh/edinburgh2.webp" alt="Edinburgh Image 2">
-                                <img src="../Images/edinburgh/edinburgh3.jpeg" alt="Edinburgh Image 3">
-                            </div>
-                            <button class="carousel-button" onclick="changeSlide('edinburgh', -1)">&#10094;</button>
-                            <button class="carousel-button" onclick="changeSlide('edinburgh', 1)">&#10095;</button>
-                        </div>
-                    </div>
-                </div>
+    <nav class="navbar navbar-expand-md navbar-light pt-5 pb-4">
+        <div class="container-xxl">
+            <!-- navbar brand / title with logo -->
+            <a class="navbar-brand" href="index.html">
+                <!-- logo image -->
+                <img src="images/Logo.png" alt="Logo" class="img-fluid me-2" style="max-height: 200px;">
+                <span class="text-secondary fw-bold">
+                    Explore Scotland
+                </span>
+            </a>
+            <!-- toggle button for mobile nav -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <!-- navbar links -->
+            <div class="collapse navbar-collapse justify-content-end align-center" id="main-nav">
+                <ul class="navbar-nav">
+                    <!-- dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="thingsToDoDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Things to do
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="thingsToDoDropdown">
+                            <li><a class="dropdown-item" href="edinburgh.html">Edinburgh</a></li>
+                            <li><a class="dropdown-item" href="glasgow.html">Glasgow</a></li>
+                            <li><a class="dropdown-item" href="Aberdeen">Aberdeen</a></li>
+                        </ul>
+                    </li>
+    
+                    <!-- dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="placesToSeeDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Places to see
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="placesToSeeDropdown">
+                            <li><a class="dropdown-item" href="edinburgh.html">Edinburgh</a></li>
+                            <li><a class="dropdown-item" href="glasgow.html">Glasgow</a></li>
+                            <li><a class="dropdown-item" href="aberdeen.html">Aberdeen</a></li>
+                        </ul>
+                    </li>
+    
+                    <!-- other nav items -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Quizzes</a>
+                    </li>
+                    </li>
+                    <li class="nav-item ms-2 d-none d-md-inline">
+                        <a class="btn btn-secondary" href="#pricing">My Profile</a>
+                    </li>
+                </ul>
             </div>
         </div>
+    </nav>
+
+  <!-- main image & intro text -->
+  <section id="intro">
+    <div class="container-lg">
+      <div class="row g-4 justify-content-center align-items-center">
+        <div class="col-md-5 text-center text-md-start">
+          <h1>
+            <div class="display-2">Explore Scotland</div>
+            <div class="display-5 text-muted">Your guide to Scotland</div>
+          </h1>
+          <p class="lead my-4 text-muted">Featuring Edinburgh, Glasgow and Aberdeen</p>
+          <a href="#cities" class="btn btn-secondary btn-lg">Explore Now</a>
+        </div>
+        <div class="col-md-5 text-center d-none d-md-block">
+          <img src="/images/Dukeofwellington-removebg-preview.png" class="img-fluid" alt="ebook">
+        </div>
+      </div>
     </div>
-    <footer>
-        &copy; 2024 Explore Scotland | Designed by Group 3
-    </footer>
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-    <script src="carousel.js"></script>
-    <script src="../Scripts/script.js"></script>
+  </section>
+
+  <!-- cities -->
+  <section id="cities" class="bg-light mt-5">
+    <div class="container-lg">
+      <div class="text-center">
+        <h2>Scotland's Major Cities</h2>
+        <p class="lead text-muted">Choose one that suits you</p>
+      </div>
+  
+      <div class="row my-5 g-0 align-items-center justify-content-center">
+        <!-- glasgow -->
+        <div class="col-8 col-lg-4 col-xl-3">
+          <div class="card border-0">
+            <div class="card-body text-center py-4">
+              <h4 class="card-title">Glasgow</h4>
+              <p class="lead card-subtitle">Vibrant Resilient Diverse</p>
+              <img src="images/Glasgow.jpeg" alt="Glasgow" class="img-fluid my-4" />
+              <p class="card-text mx-5 text-muted d-none d-lg-block">From the Kelvingrove Art Gallery to street art in the city’s West End, Glasgow is an art lover's dream.</p>
+              <a href="glasgow.html" class="btn btn-outline-primary btn-lg mt-3">
+                Discover Glasgow
+              </a>
+            </div>
+          </div>
+        </div>
+      
+        <!-- edinburgh -->
+        <div class="col-9 col-lg-4">
+          <div class="card border-primary border-2">
+            <div class="card-header text-center text-primary">Scotland’s Capital City</div>
+            <div class="card-body text-center py-5">
+              <h4 class="card-title">Edinburgh</h4>
+              <p class="lead card-subtitle">Historic Cultural Iconic</p>
+              <img src="images/Edinburgh.avif" alt="Edinburgh" class="img-fluid my-4" />
+              <p class="card-text mx-5 text-muted d-none d-lg-block">Explore the medieval Edinburgh Castle, perched atop an extinct volcano, offering breathtaking views.</p>
+              <a href="edinburgh.html" class="btn btn-outline-primary btn-lg mt-3">
+                Plan Your Edinburgh Adventure
+              </a>
+            </div>
+          </div>
+        </div>
+      
+        <!-- aberdeen -->
+        <div class="col-8 col-lg-4 col-xl-3">
+          <div class="card border-0">
+            <div class="card-body text-center py-4">
+              <h4 class="card-title">Aberdeen</h4>
+              <p class="lead card-subtitle">Coastal Industrious Charming</p>
+              <img src="images/aberdeen2.jpg" alt="Aberdeen" class="img-fluid my-4" />
+              <p class="card-text mx-5 text-muted d-none d-lg-block">Aberdeen’s rugged coastline offers beauty, perfect for a scenic walk or a visit to its iconic beaches.</p>
+              <a href="aberdeen.html" class="btn btn-outline-primary btn-lg mt-3">
+                Discover Aberdeen’s Charm
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+  
+  <!-- contact form -->
+  <section id="contact">
+    <div class="container-lg">
+      
+      <div class="text-center">
+        <h2>Get in Touch</h2>
+        <p class="lead">Questions to ask? Fill out the form to contact us directly...</p>
+      </div>
+      <div class="row justify-content-center my-5">
+        <div class="col-lg-6">
+          
+          <form>
+            <label for="email" class="form-label">Email address:</label>
+            <div class="input-group mb-4">
+              <span class="input-group-text">
+                <i class="bi bi-envelope-fill text-secondary"></i>
+              </span>
+              <input type="text" id="email" class="form-control" placeholder="e.g. group3@gcu.co.uk" />
+            </div>
+            <label for="name" class="form-label">Name:</label>
+            <div class="mb-4 input-group">
+              <span class="input-group-text">
+                <i class="bi bi-person-fill text-secondary"></i>
+              </span>
+              <input type="text" id="name" class="form-control" placeholder="e.g. Shane" />
+            </div>
+            <label for="subject" class="form-label">What is your question about?</label>
+            <div class="mb-4 input-group">
+              <span class="input-group-text">
+                <i class="bi bi-chat-right-dots-fill text-secondary"></i>
+              </span>
+              <select class="form-select" id="subject">
+                <option value="pricing" selected>Travel and Accommodation</option>
+                <option value="content">Event Information</option>
+                <option value="other">Other query</option>
+              </select>
+            </div>
+            <div class="mb-4 mt-5 form-floating">
+              <textarea class="form-control" id="query" style="height: 140px" placeholder="query"></textarea>
+              <label for="query">Your query...</label>
+            </div>
+            <div class="mb-4 text-center">
+              <button type="submit" class="btn btn-secondary">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--footer-->
+  <footer class="bg-light text-dark py-3">
+    <div class="container">
+      <div class="text-center">
+        <h6>Follow Us</h6>
+        <div class="d-flex justify-content-center">
+          <a href="https://facebook.com" target="_blank" class="me-3" style="color: #3b5998;">
+            <i class="bi bi-facebook fs-5"></i>
+          </a>
+          <a href="https://twitter.com" target="_blank" class="me-3" style="color: #00acee;">
+            <i class="bi bi-twitter fs-5"></i>
+          </a>
+          <a href="https://instagram.com" target="_blank" style="color: #E1306C;">
+            <i class="bi bi-instagram fs-5"></i>
+          </a>
+        </div>
+      </div>
+      <div class="text-center mt-3">
+        <small>&copy; 2024 Explore Scotland by Group 3.</small>
+      </div>
+    </div>
+  </footer>
+  
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -473,7 +473,8 @@ body {
     max-width: 900px;
     margin: auto;
     margin-top: 20px;
-    /* Space below the carousel */
+    border-bottom: 2px;
+
 }
 
 
@@ -496,13 +497,11 @@ body {
 
 .landmarks-section {
     margin-top: 30px;
-    /* Space between carousel and landmarks section */
     padding: 20px;
     width: 100%;
     margin-left: auto;
     margin-right: auto;
     clear: both;
-    /* Ensure it starts below previous content */
 }
 
 .landmarks-section h2 {
@@ -515,10 +514,8 @@ body {
 .card-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    /* 3 equal-width columns */
-    gap: 20px;
+    gap: 30px;
     padding: 0 20px;
-    /* Optional: add a little padding on the sides */
 }
 
 .card {
@@ -527,15 +524,13 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     width: 100%;
-    /* Make each card fill its grid column */
 }
 
 .card img {
     width: 100%;
     height: 400px;
-    /* Fixed height for uniform images */
     object-fit: cover;
-    /* Ensures the image fills the container and maintains aspect ratio */
+
 }
 
 .card-body {
@@ -553,17 +548,22 @@ body {
     color: #555;
 }
 
-/* Responsive: Adjusts to 1 or 2 columns on smaller screens */
+
 @media (max-width: 992px) {
     .card-grid {
         grid-template-columns: repeat(2, 1fr);
-        /* 2 columns */
     }
 }
 
 @media (max-width: 600px) {
     .card-grid {
         grid-template-columns: 1fr;
-        /* 1 column */
     }
+}
+
+.section-divider {
+    border: 0;
+    border-top: 2px solid #ccc;
+    /* Light gray divider line */
+    margin: 30px 0;
 }
