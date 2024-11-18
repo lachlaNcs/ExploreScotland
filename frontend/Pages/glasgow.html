@@ -1,41 +1,237 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Explore Glasgow</title>
-    <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Explore Glasgow</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <style>
+    section {
+      padding: 60px 0;
+    }
+    .quiz-btn {
+      display: block;
+      margin: 20px auto;
+      max-width: 300px;
+    }
+    .card-img-top {
+    width: 100%;
+    height: 220px; 
+    object-fit: cover; 
+  }
+  </style>
 </head>
 <body>
-    <div class="wrapper">
-        <nav>
-            <a href="mapexample.html">Explore Scotland</a>
-            <a href="#">Activities</a>
-            <a href="#">Contact</a>
-        </nav>
-        <div class="container">
-            <div id="map"></div>
-            <div class="info">
-                <h2>Explore Glasgow</h2>
-                <p>Welcome to Glasgow! Here you can explore the city's vibrant architecture, culture, and history.</p>
-                <h3>Featured Landmarks</h3>
-                <ul>
-                    <li>Necropolis: A famous Victorian cemetery with beautiful views over Glasgow.</li>
-                    <li>Kelvingrove Art Gallery: One of the most visited museums in the UK.</li>
-                </ul>
-                <div class="quiz-section">
-                    <h3>Test Your Knowledge</h3>
-                    <button class="quiz-button">Take a Quiz</button>
-                </div>
-            </div>
-        </div>
+  <!-- navbar -->
+  <nav class="navbar navbar-expand-md navbar-light pt-5 pb-4">
+    <div class="container-xxl">
+      <a class="navbar-brand" href="index.html">
+        <img src="../Images/Logo.png" alt="Logo" class="img-fluid me-2" style="max-height: 200px;">
+        <span class="text-secondary fw-bold">Explore Scotland</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="main-nav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#landmarks">Landmarks</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#quiz">Quiz</a>
+          </li>
+        </ul>
+      </div>
     </div>
-    <footer>
-        &copy; 2024 Explore Scotland | Designed by Group 3
-    </footer>
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-    <script src="../Scripts/glasgow_script.js"></script>
+  </nav>
+
+<!-- main intro section -->
+<section id="intro">
+    <div class="container-lg">
+      <div class="row justify-content-center">
+        <div class="col-md-8 text-center">
+          <h1 class="display-2">Explore Glasgow</h1>
+          <h2 class="display-5 text-muted">Discover the Heart of Scotland</h2>
+          <p class="lead my-4 text-muted">Dive into Glasgow's rich history, culture, and modern charm.</p>
+          <a href="#landmarks" class="btn btn-secondary btn-lg">Discover Landmarks</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- landmarks brief section -->
+  <section id="landmarks" class="bg-light">
+    <div class="container-lg">
+      <div class="text-center">
+        <h2>Glasgow Landmarks</h2>
+        <p class="lead text-muted">Explore the city's must-visit locations</p>
+      </div>
+      <div class="row my-5 g-4">
+        <div class="col-md-6 col-lg-3">
+          <div class="card border-0">
+            <img src="../Images/glasgow/kelvingrove.jpg" alt="Kelvingrove Art Gallery" class="card-img-top">
+            <div class="card-body text-center">
+              <h5 class="card-title">Kelvingrove Art Gallery</h5>
+              <p class="card-text text-muted">Home to incredible artworks and historical exhibits.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="card border-0">
+            <img src="../Images/glasgow/GeoSq.jpg" alt="George Square" class="card-img-top">
+            <div class="card-body text-center">
+              <h5 class="card-title">George Square</h5>
+              <p class="card-text text-muted">A historic and cultural hub in the city center.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="card border-0">
+            <img src="../Images/glasgow/Riversidemue.png" alt="Riverside Museum" class="card-img-top">
+            <div class="card-body text-center">
+              <h5 class="card-title">Riverside Museum</h5>
+              <p class="card-text text-muted">A modern museum celebrating transportation history.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="card border-0">
+            <img src="../Images/glasgow/glasgowcathedral.jpg" alt="Glasgow Cathedral" class="card-img-top">
+            <div class="card-body text-center">
+              <h5 class="card-title">Glasgow Cathedral</h5>
+              <p class="card-text text-muted">A magnificent medieval building with Gothic architecture.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="detailed-landmarks" class="py-5">
+    <div class="container-lg">
+      <div class="text-center mb-5">
+        <h2>Discover More About Glasgow's Landmarks</h2>
+        <p class="lead text-muted">Delve deeper into the history and significance of these iconic sites.</p>
+      </div>
+  
+      <!-- Kelvingrove Art Gallery -->
+      <div class="row align-items-center mb-5">
+        <div class="col-lg-6">
+          <img src="../Images/glasgow/kelvingrove.jpg" alt="Kelvingrove Art Gallery" class="img-fluid rounded">
+        </div>
+        <div class="col-lg-6">
+          <h3>Kelvingrove Art Gallery</h3>
+          <p class="lead text-muted">
+            Located in the West End of Glasgow, the Kelvingrove Art Gallery and Museum is one of Scotland’s most popular attractions.
+            It houses an impressive collection of artworks and historical exhibits, offering something for everyone, from Salvador Dalí’s 
+            "Christ of St John of the Cross" to ancient Egyptian artifacts.
+          </p>
+        </div>
+      </div>
+  
+      <!-- George Square -->
+      <div class="row align-items-center mb-5">
+        <div class="col-lg-6 order-lg-2">
+          <img src="../Images/glasgow/GeoSq.jpg" alt="George Square" class="img-fluid rounded">
+        </div>
+        <div class="col-lg-6 order-lg-1">
+          <h3>George Square</h3>
+          <p class="lead text-muted">
+            At the heart of Glasgow, George Square serves as a cultural and historical hub. It is surrounded by Victorian architecture 
+            and features statues of renowned figures such as Sir Walter Scott. The square hosts various events, including festivals and markets.
+          </p>
+        </div>
+      </div>
+  
+      <!-- Riverside Museum -->
+      <div class="row align-items-center mb-5">
+        <div class="col-lg-6">
+          <img src="../Images/glasgow/Riversidemue.png" alt="Riverside Museum" class="img-fluid rounded">
+        </div>
+        <div class="col-lg-6">
+          <h3>Riverside Museum</h3>
+          <p class="lead text-muted">
+            The Riverside Museum, located on the banks of the River Clyde, showcases Glasgow’s transport heritage. 
+            Its modern architecture, designed by Zaha Hadid, complements its extensive collection of vintage vehicles, 
+            including trams, cars, and bicycles.
+          </p>
+        </div>
+      </div>
+  
+      <!-- Glasgow Cathedral -->
+      <div class="row align-items-center">
+        <div class="col-lg-6 order-lg-2">
+          <img src="../Images/glasgow/glasgowcathedral.jpg" alt="Glasgow Cathedral" class="img-fluid rounded">
+        </div>
+        <div class="col-lg-6 order-lg-1">
+          <h3>Glasgow Cathedral</h3>
+          <p class="lead text-muted">
+            Glasgow Cathedral, also known as St. Mungo's Cathedral, is an iconic medieval building that boasts stunning Gothic architecture. 
+            As the oldest cathedral in mainland Scotland, it is a site of significant historical and religious importance.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- map -->
+<section id="map" class="bg-light">
+    <div class="container-lg">
+      <div class="text-center">
+        <h2>Interactive Glasgow Map</h2>
+        <p class="lead text-muted">Find the landmarks on the map below</p>
+      </div>
+      <div id="glasgow-map" style="height: 500px; border: 1px solid #ddd;"></div>
+    </div>
+</section>
+  
+  <script>
+    // initialize the map
+    const map = L.map('glasgow-map').setView([55.8642, -4.2518], 13); // Centered on Glasgow
+  
+    // add OpenStreetMap tiles
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    }).addTo(map);
+  
+    // markers
+    const landmarks = [
+      { name: "Kelvingrove Art Gallery", lat: 55.8684, lng: -4.2918 },
+      { name: "George Square", lat: 55.8609, lng: -4.2500 },
+      { name: "Riverside Museum", lat: 55.8654, lng: -4.3080 },
+      { name: "Glasgow Cathedral", lat: 55.8610, lng: -4.2344 },
+    ];
+  
+    landmarks.forEach((landmark) => {
+      L.marker([landmark.lat, landmark.lng])
+        .addTo(map)
+        .bindPopup(`<b>${landmark.name}</b>`);
+    });
+  </script>
+
+  <!-- quiz -->
+  <section id="quiz">
+    <div class="container-lg text-center">
+      <h2>Test Your Knowledge</h2>
+      <p class="lead">Think you know Glasgow? Take our quiz to find out!</p>
+      <a href="glasgow-quiz.html" class="btn btn-primary btn-lg quiz-btn">Start the Quiz</a>
+    </div>
+  </section>
+
+  <!-- footer -->
+  <footer class="bg-light text-dark py-3">
+    <div class="container text-center">
+      <small>&copy; 2024 Explore Scotland by Group 3.</small>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
