@@ -1,0 +1,226 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    section {
+      padding: 60px 0;
+    }
+
+    .question-container {
+      margin-top: 20px;
+    }
+
+    .question-title {
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-md navbar-light pt-5 pb-4">
+    <div class="container-xxl">
+      <!-- navbar brand / title with logo -->
+      <a class="navbar-brand" href="index.html">
+        <!-- logo image -->
+        <img src="../Images/Logo.png" alt="Logo" class="img-fluid me-2" style="max-height: 200px;">
+        <span class="text-secondary fw-bold">
+          Explore Scotland
+        </span>
+      </a>
+      <!-- toggle button for mobile nav -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav"
+        aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- navbar links -->
+      <div class="collapse navbar-collapse justify-content-end align-center" id="main-nav">
+        <ul class="navbar-nav">
+          <!-- dropdown -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="thingsToDoDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Things to do
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="thingsToDoDropdown">
+              <li><a class="dropdown-item" href="edinburgh.html">Edinburgh</a></li>
+              <li><a class="dropdown-item" href="glasgow.html">Glasgow</a></li>
+              <li><a class="dropdown-item" href="Aberdeen">Aberdeen</a></li>
+            </ul>
+          </li>
+
+          <!-- dropdown -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="placesToSeeDropdown" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              Places to see
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="placesToSeeDropdown">
+              <li><a class="dropdown-item" href="edinburgh.html">Edinburgh</a></li>
+              <li><a class="dropdown-item" href="glasgow.html">Glasgow</a></li>
+              <li><a class="dropdown-item" href="aberdeen.html">Aberdeen</a></li>
+            </ul>
+          </li>
+
+          <!-- other nav items -->
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Quizzes</a>
+          </li>
+          </li>
+          <li class="nav-item ms-2 d-none d-md-inline">
+            <a class="btn btn-secondary" href="#pricing">My Profile</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+<section id="glasgow-quiz">
+    <div class="container">
+      <h1 class="text-center">Glasgow Quiz</h1>
+      <div id="quiz-container" class="mt-4"></div>
+      <div id="error-alert" class="alert alert-danger d-none mt-3" role="alert">
+        Please answer all the questions before submitting the quiz.
+      </div>
+    </div>
+  </section>
+
+  <!--footer-->
+  <footer class="bg-light text-dark py-3">
+    <div class="container">
+      <div class="text-center">
+        <h6>Follow Us</h6>
+        <div class="d-flex justify-content-center">
+          <a href="https://facebook.com" target="_blank" class="me-3" style="color: #3b5998;">
+            <i class="bi bi-facebook fs-5"></i>
+          </a>
+          <a href="https://twitter.com" target="_blank" class="me-3" style="color: #00acee;">
+            <i class="bi bi-twitter fs-5"></i>
+          </a>
+          <a href="https://instagram.com" target="_blank" style="color: #E1306C;">
+            <i class="bi bi-instagram fs-5"></i>
+          </a>
+        </div>
+      </div>
+      <div class="text-center mt-3">
+        <small>&copy; 2024 Explore Scotland by Group 3.</small>
+      </div>
+    </div>
+  </footer>
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+    crossorigin="anonymous"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+          const apiUrl = 'https://localhost:7255/api/Quiz/quiz_1/questions'; // Replace with your API endpoint
+          const quizContainer = document.getElementById('quiz-container');
+          const errorAlert = document.getElementById('error-alert');
+
+          // Function to load the quiz
+          function loadQuiz() {
+            quizContainer.innerHTML = ''; // Clear existing content
+            errorAlert.classList.add('d-none'); // Hide error alert
+
+            fetch(apiUrl)
+              .then(response => response.json())
+              .then(questions => {
+                if (!questions.length) {
+                  quizContainer.innerHTML = '<p class="text-center text-muted">No quiz questions available.</p>';
+                  return;
+                }
+
+                // Shuffle and limit questions to 5
+                const shuffledQuestions = questions.sort(() => Math.random() - 0.5).slice(0, 5);
+
+                shuffledQuestions.forEach((question, index) => {
+                  const questionCard = document.createElement('div');
+                  questionCard.className = 'card mb-4 question-container';
+
+                  const questionBody = `
+            <div class="card-body">
+              <h5 class="card-title question-title">Q${index + 1}: ${question.prompt}</h5>
+              ${question.choices.map(choice => `
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="question-${index}" id="choice-${choice.choiceId}" value="${choice.isCorrect}">
+                  <label class="form-check-label" for="choice-${choice.choiceId}">
+                    ${choice.text}
+                  </label>
+                </div>
+              `).join('')}
+            </div>
+          `;
+                  questionCard.innerHTML = questionBody;
+                  quizContainer.appendChild(questionCard);
+                });
+
+                // Add submit button
+                const submitButton = document.createElement('button');
+                submitButton.className = 'btn btn-primary';
+                submitButton.textContent = 'Submit Quiz';
+                submitButton.addEventListener('click', () => handleQuizSubmission(shuffledQuestions.length));
+                quizContainer.appendChild(submitButton);
+              })
+              .catch(error => {
+                console.error('Error fetching quiz data:', error);
+                quizContainer.innerHTML = '<p class="text-center text-danger">Failed to load quiz questions.</p>';
+              });
+          }
+
+          // Function to handle quiz submission
+          function handleQuizSubmission(totalQuestions) {
+            console.log('Submit button clicked'); // Debugging: Check if function is called
+
+            const selectedAnswers = document.querySelectorAll('input[type="radio"]:checked');
+            const totalAnswered = selectedAnswers.length;
+
+            // Check if all questions are answered
+            if (totalAnswered < totalQuestions) {
+              console.log('Not all questions answered'); // Debugging
+              errorAlert.classList.remove('d-none'); // Show error alert
+              return;
+            }
+
+            // Hide error alert since all questions are answered
+            errorAlert.classList.add('d-none');
+
+            // Calculate the number of correct answers
+            let correctAnswers = 0;
+            selectedAnswers.forEach(answer => {
+              if (answer.value === 'true') correctAnswers++;
+            });
+
+            // Display score and retry option
+            quizContainer.innerHTML = `
+      <div class="alert alert-success text-center" role="alert">
+        You got ${correctAnswers} out of ${totalQuestions} questions correct! 🎉
+      </div>
+      <div class="text-center mt-4">
+        <button id="retry-quiz" class="btn btn-secondary">Retry Quiz</button>
+      </div>
+    `;
+
+            // Add event listener to retry button
+            document.getElementById('retry-quiz').addEventListener('click', () => {
+              location.reload(); // Refresh the page
+            });
+          }
+
+          // Load the quiz on page load
+          loadQuiz();
+        });
+
+    </script>
+</body>
+
+</html>

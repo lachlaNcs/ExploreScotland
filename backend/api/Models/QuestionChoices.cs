@@ -1,4 +1,3 @@
-using api.Models;
 using System.ComponentModel.DataAnnotations;
 
 
@@ -13,5 +12,7 @@ namespace api.Models
         public string QuestionQuestionId { get; set; } = string.Empty;
         public string Text { get; set; } = string.Empty;
         public bool IsCorrect { get; set; }
+
+        public Question Question { get; set; }
     }
 }
