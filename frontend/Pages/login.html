@@ -4,115 +4,125 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Explore Scotland</title>
-    <link rel="stylesheet" href="../css/styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .card {
+            max-width: 500px;
+            margin: auto;
+            margin-top: 50px;
+            padding: 20px;
+        }
+        footer {
+            background-color: #f8f9fa;
+            padding: 10px 0;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .table-container {
+            margin-top: 30px;
+            overflow-x: auto;
+        }
+    </style>
 </head>
 <body>
-    <div class="wrapper">
-        <nav>
-            <div class="nav-links">
-                <a href="mapexample.html">Explore Scotland</a>
-                <a href="#">Activities</a>
-                <a href="#">Contact</a>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+        <div class="container-xxl">
+            <a class="navbar-brand" href="index.html">
+                <img src="../Images/Logo.png" alt="Logo" class="img-fluid me-2" style="max-height: 40px;">
+                <span class="text-secondary fw-bold">Explore Scotland</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="main-nav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="mapexample.html">Explore Scotland</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Activities</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="RegisterNew.html">Register</a>
+                    </li>
+                </ul>
             </div>
-            <div class="auth-buttons">
-                <a href="login.html" class="login-btn">Login</a>
-                <a href="register.html" class="register-btn">Register</a>
-            </div>
-        </nav>
-        
-        <div class="login-container">
-            <h2>Login</h2>
-            <form class="login-form">
-                <div class="form-group">
-                    <label for="username">Username:</label>
-                    <input type="text" id="username" name="username" required>
-                </div>
-                <div class="form-group">
-                    <label for="password">Password:</label>
-                    <input type="password" id="password" name="password" required>
-                </div>
-                <button type="submit" class="login-btn">Login</button>
-            </form>
-            <p>Don't have an account? <a href="register.html">Register here</a></p>
         </div>
-        <div id="quiz-container"></div>
+    </nav>
 
-    
+    <!-- Login Form Card -->
+    <div class="container">
+        <div class="card shadow-lg">
+            <div class="card-body">
+                <h2 class="card-title text-center mb-4">Login</h2>
+                <form>
+                    <div class="form-group mb-3">
+                        <label for="username" class="form-label">Username:</label>
+                        <input type="text" class="form-control" id="username" name="username" required>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="password" class="form-label">Password:</label>
+                        <input type="password" class="form-control" id="password" name="password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Login</button>
+                </form>
+                <p class="text-center mt-3">Don't have an account? <a href="RegisterNew.html">Register here</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
     <footer>
         &copy; 2024 Explore Scotland | Designed by Group 3
     </footer>
-    
-</body>
+
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        const quizId = "quiz_1"; // Replace with dynamic quiz ID if needed
-        const apiEndpoint = `https://localhost:7255/api/Quiz/${quizId}/questions`;
-
-        async function fetchQuizQuestions() {
-            try {
-                const response = await fetch(apiEndpoint);
-                if (!response.ok) throw new Error("Failed to load questions");
-
-                const questions = await response.json();
-                console.log("Questions from API: ", questions)
-                renderQuestions(questions);
-            } catch (error) {
-                console.error(error);
-                alert("Error fetching quiz data");
-            }
-        }
-        function renderQuestions(questions) {
-                // Filter out questions with invalid or empty choices
-                const validQuestions = questions.filter(
-                    (question) => Array.isArray(question.choices) && question.choices.length > 0
-                );
-
-                // Check if any valid questions remain
-                if (validQuestions.length === 0) {
-                    alert("No valid questions available for this quiz.");
-                    return;
+        fetch('https://localhost:7255/WeatherForecast')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok ' + response.statusText);
                 }
+                return response.json(); // Parse the JSON response
+            })
+            .then(data => {
+                const tableBody = document.getElementById('forecastTable').getElementsByTagName('tbody')[0];
+                tableBody.innerHTML = ''; // Clear any existing rows
+                data.forEach(forecast => {
+                    const row = document.createElement('tr');
+                    const dateCell = document.createElement('td');
+                    dateCell.textContent = forecast.date;
+                    const tempCCell = document.createElement('td');
+                    tempCCell.textContent = forecast.temperatureC + ' °C';
+                    const tempFCell = document.createElement('td');
+                    tempFCell.textContent = forecast.temperatureF + ' °F';
+                    const summaryCell = document.createElement('td');
+                    summaryCell.textContent = forecast.summary;
 
-                const container = document.getElementById("quiz-container");
-                container.innerHTML = ""; // Clear existing content
-
-                validQuestions.forEach((question) => {
-                    const questionDiv = document.createElement("div");
-                    questionDiv.className = "question";
-
-                    // Display the question prompt
-                    const prompt = document.createElement("h3");
-                    prompt.textContent = question.prompt;
-                    questionDiv.appendChild(prompt);
-
-                    // Create a container for the choices
-                    const choicesDiv = document.createElement("div");
-                    choicesDiv.className = "choices";
-
-                    // Iterate through valid choices
-                    question.choices.forEach((choice) => {
-                        const button = document.createElement("button");
-                        button.textContent = choice.text;
-                        button.onclick = () => checkAnswer(choice.isCorrect);
-                        choicesDiv.appendChild(button);
-                    });
-
-                    questionDiv.appendChild(choicesDiv);
-                    container.appendChild(questionDiv);
+                    row.appendChild(dateCell);
+                    row.appendChild(tempCCell);
+                    row.appendChild(tempFCell);
+                    row.appendChild(summaryCell);
+                    tableBody.appendChild(row);
                 });
-            }
-
-            function checkAnswer(isCorrect) {
-                if (isCorrect) {
-                    alert("Correct answer! 🎉");
-                } else {
-                    alert("Wrong answer. Try again!");
-                }
-            }
-
-
-// Call this when the page loads
-fetchQuizQuestions();
-
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                const table = document.getElementById('forecastTable');
+                table.outerHTML = '<p class="text-danger">Error loading data: ' + error.message + '</p>';
+            });
     </script>
+</body>
 </html>
