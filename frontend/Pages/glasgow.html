@@ -53,21 +53,21 @@
   </nav>
 
 <!-- main intro section -->
-<section id="intro">
+<section id="intro" >
     <div class="container-lg">
       <div class="row justify-content-center">
         <div class="col-md-8 text-center">
           <h1 class="display-2">Explore Glasgow</h1>
           <h2 class="display-5 text-muted">Discover the Heart of Scotland</h2>
           <p class="lead my-4 text-muted">Dive into Glasgow's rich history, culture, and modern charm.</p>
-          <a href="#landmarks" class="btn btn-secondary btn-lg">Discover Landmarks</a>
+          <a href="#landmarks" class="btn btn-primary btn-lg">Discover Landmarks</a>
         </div>
       </div>
     </div>
   </section>
 
   <!-- landmarks brief section -->
-  <section id="landmarks" class="bg-light">
+  <section id="landmarks">
     <div class="container-lg">
       <div class="text-center">
         <h2>Glasgow Landmarks</h2>
@@ -114,6 +114,15 @@
     </div>
   </section>
 
+    <!-- quiz -->
+    <section id="quiz" class="bg-light">
+      <div class="container-lg text-center">
+        <h2>Test Your Knowledge</h2>
+        <p class="lead">Think you know Glasgow? Take our quiz to find out!</p>
+        <a href="glasgow-quiz.html" class="btn btn-primary btn-lg quiz-btn">Start the Quiz</a>
+      </div>
+    </section>
+
   <section id="detailed-landmarks" class="py-5">
     <div class="container-lg">
       <div class="text-center mb-5">
@@ -122,7 +131,7 @@
       </div>
   
       <!-- kelvingrove Art Gallery -->
-      <div class="row align-items-center mb-5">
+      <div class="row align-items-center mb-5 bg-light">
         <div class="col-lg-6">
           <img src="../Images/glasgow/kelvingrove.jpg" alt="Kelvingrove Art Gallery" class="img-fluid rounded">
         </div>
@@ -137,7 +146,7 @@
       </div>
   
       <!-- george Square -->
-      <div class="row align-items-center mb-5">
+      <div class="row align-items-center mb-5 bg-light">
         <div class="col-lg-6 order-lg-2">
           <img src="../Images/glasgow/GeoSq.jpg" alt="George Square" class="img-fluid rounded">
         </div>
@@ -151,7 +160,7 @@
       </div>
   
       <!-- riverside Museum -->
-      <div class="row align-items-center mb-5">
+      <div class="row align-items-center mb-5 bg-light">
         <div class="col-lg-6">
           <img src="../Images/glasgow/Riversidemue.jpg" alt="Riverside Museum" class="img-fluid rounded">
         </div>
@@ -166,7 +175,7 @@
       </div>
   
       <!-- glasgow Cathedral -->
-      <div class="row align-items-center">
+      <div class="row align-items-center bg-light">
         <div class="col-lg-6 order-lg-2">
           <img src="../Images/glasgow/glasgowcathedral.jpg" alt="Glasgow Cathedral" class="img-fluid rounded">
         </div>
@@ -182,7 +191,7 @@
   </section>
 
   <!-- map -->
-<section id="map" class="bg-light">
+<section id="map">
     <div class="container-lg">
       <div class="text-center">
         <h2>Interactive Glasgow Map</h2>
@@ -216,19 +225,26 @@
     });
   </script>
 
-  <!-- quiz -->
-  <section id="quiz">
-    <div class="container-lg text-center">
-      <h2>Test Your Knowledge</h2>
-      <p class="lead">Think you know Glasgow? Take our quiz to find out!</p>
-      <a href="glasgow-quiz.html" class="btn btn-primary btn-lg quiz-btn">Start the Quiz</a>
-    </div>
-  </section>
-
-  <!-- footer -->
+  <!--footer-->
   <footer class="bg-light text-dark py-3">
-    <div class="container text-center">
-      <small>&copy; 2024 Explore Scotland by Group 3.</small>
+    <div class="container">
+      <div class="text-center">
+        <h6>Follow Us</h6>
+        <div class="d-flex justify-content-center">
+          <a href="https://facebook.com" target="_blank" class="me-3" style="color: #3b5998;">
+            <i class="bi bi-facebook fs-5"></i>
+          </a>
+          <a href="https://twitter.com" target="_blank" class="me-3" style="color: #00acee;">
+            <i class="bi bi-twitter fs-5"></i>
+          </a>
+          <a href="https://instagram.com" target="_blank" style="color: #E1306C;">
+            <i class="bi bi-instagram fs-5"></i>
+          </a>
+        </div>
+      </div>
+      <div class="text-center mt-3">
+        <small>&copy; 2024 Explore Scotland by Group 3.</small>
+      </div>
     </div>
   </footer>
 
