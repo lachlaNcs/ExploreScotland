@@ -3,7 +3,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Glasgow Quiz</title>
+  <title>Edinburgh Quiz</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
@@ -83,9 +83,9 @@
     </div>
   </nav>
 
-<section id="glasgow-quiz">
+<section id="edinburgh-quiz">
     <div class="container">
-      <h1 class="text-center">Glasgow Quiz</h1>
+      <h1 class="text-center">Edinburgh Quiz</h1>
       <div id="quiz-container" class="mt-4"></div>
       <div id="error-alert" class="alert alert-danger d-none mt-3" role="alert">
         Please answer all the questions before submitting the quiz.
@@ -123,7 +123,7 @@
     crossorigin="anonymous"></script>
     <script>
       document.addEventListener('DOMContentLoaded', function () {
-          const apiUrl = 'https://localhost:7255/api/Quiz/quiz_1/questions'; // Replace with your API endpoint
+          const apiUrl = 'https://localhost:7255/api/Quiz/quiz_2/questions'; // Replace with your API endpoint
           const quizContainer = document.getElementById('quiz-container');
           const errorAlert = document.getElementById('error-alert');
 
@@ -148,15 +148,15 @@
                   questionCard.className = 'card mb-4 question-container';
 
                   const questionBody = `
-            <div class="card-body">
-              <h5 class="card-title question-title">Q${index + 1}: ${question.prompt}</h5>
-              ${question.choices.map(choice => `
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="question-${index}" id="choice-${choice.choiceId}" value="${choice.isCorrect}">
-                  <label class="form-check-label" for="choice-${choice.choiceId}">
-                    ${choice.text}
-                  </label>
-                </div>
+                    <div class="card-body">
+                    <h5 class="card-title question-title">Q${index + 1}: ${question.prompt}</h5>
+                    ${question.choices.map(choice => `
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="question-${index}" id="choice-${choice.choiceId}" value="${choice.isCorrect}">
+                      <label class="form-check-label" for="choice-${choice.choiceId}">
+                        ${choice.text}
+                      </label>
+                    </div>
               `).join('')}
             </div>
           `;
