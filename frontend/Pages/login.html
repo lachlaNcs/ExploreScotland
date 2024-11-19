@@ -36,20 +36,8 @@
             </form>
             <p>Don't have an account? <a href="register.html">Register here</a></p>
         </div>
-        <table id="forecastTable" border="1">
-    <thead>
-      <tr>
-        <th>Date</th>
-        <th>Temperature (°C)</th>
-        <th>Temperature (°F)</th>
-        <th>Summary</th>
-      </tr>
-    </thead>
-    <tbody>
-      <!-- Data will be inserted here -->
-    </tbody>
-  </table>
-    </div>
+        <div id="quiz-container"></div>
+
     
     <footer>
         &copy; 2024 Explore Scotland | Designed by Group 3
@@ -57,51 +45,74 @@
     
 </body>
     <script>
-        fetch('https://localhost:7255/WeatherForecast')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok ' + response.statusText);
+        const quizId = "quiz_1"; // Replace with dynamic quiz ID if needed
+        const apiEndpoint = `https://localhost:7255/api/Quiz/${quizId}/questions`;
+
+        async function fetchQuizQuestions() {
+            try {
+                const response = await fetch(apiEndpoint);
+                if (!response.ok) throw new Error("Failed to load questions");
+
+                const questions = await response.json();
+                console.log("Questions from API: ", questions)
+                renderQuestions(questions);
+            } catch (error) {
+                console.error(error);
+                alert("Error fetching quiz data");
             }
-            return response.json(); // Parse the JSON response
-        })
-        .then(data => {
-            // Select the table body
-            const tableBody = document.getElementById('forecastTable').getElementsByTagName('tbody')[0];
-            
-            // Clear any existing rows
-            tableBody.innerHTML = '';
-            
-            // Loop through the data array and create a row for each item
-            data.forEach(forecast => {
-                const row = document.createElement('tr');
-                
-                // Create cells for date, temperature in Celsius and Fahrenheit, and summary
-                const dateCell = document.createElement('td');
-                dateCell.textContent = forecast.date;
-                
-                const tempCCell = document.createElement('td');
-                tempCCell.textContent = forecast.temperatureC + ' °C';
-                
-                const tempFCell = document.createElement('td');
-                tempFCell.textContent = forecast.temperatureF + ' °F';
-                
-                const summaryCell = document.createElement('td');
-                summaryCell.textContent = forecast.summary;
-                
-                // Append cells to the row
-                row.appendChild(dateCell);
-                row.appendChild(tempCCell);
-                row.appendChild(tempFCell);
-                row.appendChild(summaryCell);
-                
-                // Append row to the table body
-                tableBody.appendChild(row);
-            });
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            const table = document.getElementById('forecastTable');
-            table.outerHTML = '<p>Error loading data: ' + error.message + '</p>';
-        });
-        </script>
+        }
+        function renderQuestions(questions) {
+                // Filter out questions with invalid or empty choices
+                const validQuestions = questions.filter(
+                    (question) => Array.isArray(question.choices) && question.choices.length > 0
+                );
+
+                // Check if any valid questions remain
+                if (validQuestions.length === 0) {
+                    alert("No valid questions available for this quiz.");
+                    return;
+                }
+
+                const container = document.getElementById("quiz-container");
+                container.innerHTML = ""; // Clear existing content
+
+                validQuestions.forEach((question) => {
+                    const questionDiv = document.createElement("div");
+                    questionDiv.className = "question";
+
+                    // Display the question prompt
+                    const prompt = document.createElement("h3");
+                    prompt.textContent = question.prompt;
+                    questionDiv.appendChild(prompt);
+
+                    // Create a container for the choices
+                    const choicesDiv = document.createElement("div");
+                    choicesDiv.className = "choices";
+
+                    // Iterate through valid choices
+                    question.choices.forEach((choice) => {
+                        const button = document.createElement("button");
+                        button.textContent = choice.text;
+                        button.onclick = () => checkAnswer(choice.isCorrect);
+                        choicesDiv.appendChild(button);
+                    });
+
+                    questionDiv.appendChild(choicesDiv);
+                    container.appendChild(questionDiv);
+                });
+            }
+
+            function checkAnswer(isCorrect) {
+                if (isCorrect) {
+                    alert("Correct answer! 🎉");
+                } else {
+                    alert("Wrong answer. Try again!");
+                }
+            }
+
+
+// Call this when the page loads
+fetchQuizQuestions();
+
+    </script>
 </html>

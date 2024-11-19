@@ -1,7 +1,36 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\Mark\\projects\\ExploreScotland\\backend\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{39620CC7-EB9C-4940-89A0-752C675E5ACF}|api\\api.csproj|c:\\users\\mark\\projects\\explorescotland\\backend\\api\\controllers\\quizcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{39620CC7-EB9C-4940-89A0-752C675E5ACF}|api\\api.csproj|solutionrelative:api\\controllers\\quizcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{39620CC7-EB9C-4940-89A0-752C675E5ACF}|api\\api.csproj|c:\\users\\mark\\projects\\explorescotland\\backend\\api\\models\\quiz.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{39620CC7-EB9C-4940-89A0-752C675E5ACF}|api\\api.csproj|solutionrelative:api\\models\\quiz.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{39620CC7-EB9C-4940-89A0-752C675E5ACF}|api\\api.csproj|c:\\users\\mark\\projects\\explorescotland\\backend\\api\\models\\questionchoices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{39620CC7-EB9C-4940-89A0-752C675E5ACF}|api\\api.csproj|solutionrelative:api\\models\\questionchoices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{39620CC7-EB9C-4940-89A0-752C675E5ACF}|api\\api.csproj|c:\\users\\mark\\projects\\explorescotland\\backend\\api\\models\\question.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{39620CC7-EB9C-4940-89A0-752C675E5ACF}|api\\api.csproj|solutionrelative:api\\models\\question.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{39620CC7-EB9C-4940-89A0-752C675E5ACF}|api\\api.csproj|c:\\users\\mark\\projects\\explorescotland\\backend\\api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{39620CC7-EB9C-4940-89A0-752C675E5ACF}|api\\api.csproj|solutionrelative:api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{39620CC7-EB9C-4940-89A0-752C675E5ACF}|api\\api.csproj|c:\\users\\mark\\projects\\explorescotland\\backend\\api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{39620CC7-EB9C-4940-89A0-752C675E5ACF}|api\\api.csproj|solutionrelative:api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{39620CC7-EB9C-4940-89A0-752C675E5ACF}|api\\api.csproj|c:\\users\\mark\\projects\\explorescotland\\backend\\api\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{39620CC7-EB9C-4940-89A0-752C675E5ACF}|api\\api.csproj|solutionrelative:api\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,7 +38,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Bookmark",
@@ -26,6 +55,91 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Question.cs",
+              "DocumentMoniker": "C:\\Users\\Mark\\projects\\ExploreScotland\\backend\\api\\Models\\Question.cs",
+              "RelativeDocumentMoniker": "api\\Models\\Question.cs",
+              "ToolTip": "C:\\Users\\Mark\\projects\\ExploreScotland\\backend\\api\\Models\\Question.cs",
+              "RelativeToolTip": "api\\Models\\Question.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-18T16:20:19.335Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "QuestionChoices.cs",
+              "DocumentMoniker": "C:\\Users\\Mark\\projects\\ExploreScotland\\backend\\api\\Models\\QuestionChoices.cs",
+              "RelativeDocumentMoniker": "api\\Models\\QuestionChoices.cs",
+              "ToolTip": "C:\\Users\\Mark\\projects\\ExploreScotland\\backend\\api\\Models\\QuestionChoices.cs",
+              "RelativeToolTip": "api\\Models\\QuestionChoices.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-18T16:20:11.927Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Quiz.cs",
+              "DocumentMoniker": "C:\\Users\\Mark\\projects\\ExploreScotland\\backend\\api\\Models\\Quiz.cs",
+              "RelativeDocumentMoniker": "api\\Models\\Quiz.cs",
+              "ToolTip": "C:\\Users\\Mark\\projects\\ExploreScotland\\backend\\api\\Models\\Quiz.cs",
+              "RelativeToolTip": "api\\Models\\Quiz.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-18T16:19:09.511Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Mark\\projects\\ExploreScotland\\backend\\api\\appsettings.json",
+              "RelativeDocumentMoniker": "api\\appsettings.json",
+              "ToolTip": "C:\\Users\\Mark\\projects\\ExploreScotland\\backend\\api\\appsettings.json",
+              "RelativeToolTip": "api\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-11-18T15:36:41.797Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Mark\\projects\\ExploreScotland\\backend\\api\\Program.cs",
+              "RelativeDocumentMoniker": "api\\Program.cs",
+              "ToolTip": "C:\\Users\\Mark\\projects\\ExploreScotland\\backend\\api\\Program.cs",
+              "RelativeToolTip": "api\\Program.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAqwCsAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-18T15:35:55.287Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "QuizController.cs",
+              "DocumentMoniker": "C:\\Users\\Mark\\projects\\ExploreScotland\\backend\\api\\Controllers\\QuizController.cs",
+              "RelativeDocumentMoniker": "api\\Controllers\\QuizController.cs",
+              "ToolTip": "C:\\Users\\Mark\\projects\\ExploreScotland\\backend\\api\\Controllers\\QuizController.cs",
+              "RelativeToolTip": "api\\Controllers\\QuizController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC8AAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-18T15:20:12.567Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "WeatherForecastController.cs",
+              "DocumentMoniker": "C:\\Users\\Mark\\projects\\ExploreScotland\\backend\\api\\Controllers\\WeatherForecastController.cs",
+              "RelativeDocumentMoniker": "api\\Controllers\\WeatherForecastController.cs",
+              "ToolTip": "C:\\Users\\Mark\\projects\\ExploreScotland\\backend\\api\\Controllers\\WeatherForecastController.cs",
+              "RelativeToolTip": "api\\Controllers\\WeatherForecastController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-18T15:19:39.909Z"
             }
           ]
         }
