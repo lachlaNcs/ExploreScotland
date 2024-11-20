@@ -97,43 +97,5 @@
           </div>
         </div>
       </footer>
-
-    <!-- JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        fetch('https://localhost:7255/WeatherForecast')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok ' + response.statusText);
-                }
-                return response.json(); // Parse the JSON response
-            })
-            .then(data => {
-                const tableBody = document.getElementById('forecastTable').getElementsByTagName('tbody')[0];
-                tableBody.innerHTML = ''; // Clear any existing rows
-                data.forEach(forecast => {
-                    const row = document.createElement('tr');
-                    const dateCell = document.createElement('td');
-                    dateCell.textContent = forecast.date;
-                    const tempCCell = document.createElement('td');
-                    tempCCell.textContent = forecast.temperatureC + ' °C';
-                    const tempFCell = document.createElement('td');
-                    tempFCell.textContent = forecast.temperatureF + ' °F';
-                    const summaryCell = document.createElement('td');
-                    summaryCell.textContent = forecast.summary;
-
-                    row.appendChild(dateCell);
-                    row.appendChild(tempCCell);
-                    row.appendChild(tempFCell);
-                    row.appendChild(summaryCell);
-                    tableBody.appendChild(row);
-                });
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                const table = document.getElementById('forecastTable');
-                table.outerHTML = '<p class="text-danger">Error loading data: ' + error.message + '</p>';
-            });
-    </script>
 </body>
 </html>
