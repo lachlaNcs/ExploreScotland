@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edinburgh Activities - Explore Scotland</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/leaflet/dist/leaflet.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/leaflet/dist/leaflet.css" rel="stylesheet">
+  <style>
+    section {
+      padding: 60px 0;
+    }
+    #map {
+      height: 400px;
+    }
+    .activity-image {
+      max-height: 500px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+    .activity-section {
+      padding: 40px 0;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-md navbar-light">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="../Images/Logo.png" alt="Logo" class="img-fluid me-2" style="max-height: 80px;">
+        <span class="fw-bold text-secondary">Explore Scotland</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse, data-bs-target="#main-nav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="main-nav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link active" href="edinburgh.html">Edinburgh</a></li>
+          <li class="nav-item"><a class="nav-link" href="glasgow.html">Glasgow</a></li>
+          <li class="nav-item"><a class="nav-link" href="aberdeen.html">Aberdeen</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section id="activities" class="bg-light">
+    <div class="container-lg">
+      <div class="text-center">
+        <h2>Activities in Edinburgh</h2>
+        <p class="lead text-muted">Discover some of the best things to do in Edinburgh!</p>
+      </div>
+
+      <!-- Edinburgh Castle -->
+      <div class="row activity-section">
+        <div class="col-lg-6">
+          <img src="../Images/edinburgh/edinburghcastle.jpeg" class="activity-image w-100 shadow-sm" alt="Edinburgh Castle">
+        </div>
+        <div class="col-lg-6 d-flex align-items-center">
+          <div>
+            <h3>Edinburgh Castle</h3>
+            <p class="text-muted">Edinburgh Castle dominates the skyline of the city from its position on Castle Rock. Explore this historic fortress which showcases the jewels and history of Scotland.</p>
+            <a href="https://www.edinburghcastle.scot" target="_blank" class="btn btn-outline-secondary">Learn More</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Arthur's Seat -->
+      <div class="row activity-section flex-lg-row-reverse">
+        <div class="col-lg-6">
+          <img src="../Images/edinburgh/arthursseat.jpg" class="activity-image w-100 shadow-sm" alt="Arthur's Seat">
+        </div>
+        <div class="col-lg-6 d-flex align-items-center">
+          <div>
+            <h3>Arthur's Seat</h3>
+            <p class="text-muted">Arthur's Seat is an ancient volcano and Edinburgh’s highest point, providing panoramic views of the city and beyond. It's a popular spot for hiking and getting a glimpse of Edinburgh's natural beauty.</p>
+            <a href="https://www.visitscotland.com/info/see-do/holyrood-park-and-arthurs-seat-p914341" target="_blank" class="btn btn-outline-secondary">Learn More</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Holyrood Palace -->
+      <div class="row activity-section">
+        <div class="col-lg-6">
+          <img src="../Images/edinburgh/holyroodpalace.avif" class="activity-image w-100 shadow-sm" alt="Holyrood Palace">
+        </div>
+        <div class="col-lg-6 d-flex align-items-center">
+          <div>
+            <h3>Holyrood Palace</h3>
+            <p class="text-muted">Holyrood Palace is the official residence of the British monarch in Scotland. Located at the end of Edinburgh's Royal Mile, this palace is rich in history and hosts numerous royal ceremonies.</p>
+            <a href="https://www.rct.uk/visit/palace-of-holyroodhouse" target="_blank" class="btn btn-outline-secondary">Learn More</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scott Monument -->
+      <div class="row activity-section flex-lg-row-reverse">
+        <div class="col-lg-6">
+          <img src="../Images/edinburgh/scottmonument.webp" class="activity-image w-100 shadow-sm" alt="Scott Monument">
+        </div>
+        <div class="col-lg-6 d-flex align-items-center">
+          <div>
+            <h3>Scott Monument</h3>
+            <p class="text-muted">Scott Monument, a Victorian Gothic monument, celebrates Scottish author Sir Walter Scott. It offers an iconic presence on Princes Street with its impressive architecture and sweeping city views.</p>
+            <a href="https://www.edinburghmuseums.org.uk/venue/scott-monument" target="_blank" class="btn btn-outline-secondary">Learn More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="map-section">
+    <div class="container-lg">
+      <div class="text-center mb-4">
+        <h2>Find These Activities on the Map</h2>
+        <p class="lead text-muted">See where you can experience incredible places in Edinburgh.</p>
+      </div>
+      <div id="map" class="rounded"></div>
+    </div>
+  </section>
+
+    <!-- footer -->
+    <footer class="bg-light text-dark py-3">
+        <div class="container text-center">
+          <h6>Follow Us</h6>
+          <div class="d-flex justify-content-center">
+            <a href="https://facebook.com" target="_blank" class="me-3" style="color: #3b5998;">
+              <i class="bi bi-facebook fs-5"></i>
+            </a>
+            <a href="https://twitter.com" target="_blank" class="me-3" style="color: #00acee;">
+              <i class="bi bi-twitter fs-5"></i>
+            </a>
+            <a href="https://instagram.com" target="_blank" style="color: #E1306C;">
+              <i class="bi bi-instagram fs-5"></i>
+            </a>
+          </div>
+          <div class="mt-3">
+            <small>&copy; 2024 Explore Scotland by Group 3.</small>
+          </div>
+        </div>
+      </footer>
+
+  <script>
+    const map = L.map('map').setView([55.9533, -3.1883], 13);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+    }).addTo(map);
+  </script>
+</body>
+</html>
