@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Application</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+<div class="wrapper">
+    <nav>
+        <div class="nav-links">
+            <a href="mapexample.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <div class="auth-buttons">
+            <a href="login.html">Login</a>
+            <a href="register.html">Register</a>
+        </div>
+    </nav>
+
+    <div class="quiz-container">
+        <h2 class="quiz-title">Welcome to the Edinburgh Quiz!</h2>
+        <button id="startQuizButton" class="quiz-button">Start Quiz</button>
+
+        <div id="quizSection" class="quiz-section" style="display: none;">
+            <h3 id="quizQuestion">Question goes here</h3>
+            <div class="quiz-options">
+                <button class="quiz-option" data-index="0">Option 1</button>
+                <button class="quiz-option" data-index="1">Option 2</button>
+                <button class="quiz-option" data-index="2">Option 3</button>
+                <button class="quiz-option" data-index="3">Option 4</button>
+            </div>
+            <p id="quizFeedback" class="quiz-feedback"></p>
+        </div>
+
+        <div id="quizResults" class="quiz-section" style="display: none;">
+            <h3>Your Results</h3>
+            <p id="resultsText"></p>
+            <button id="retryButton" class="quiz-button">Try Again</button>
+            <a href="city.html" class="quiz-button">Return to City Page</a>
+        </div>
+    </div>
+</div>
+<footer>
+    &copy; 2024 Explore Scotland | Designed by Group 3
+</footer>
+
+<script src="../Scripts/Edinburgh_Quiz_Script.js"></script>
+</body>
+</html>
