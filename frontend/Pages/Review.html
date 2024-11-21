@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explore Scotland - Review Page</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    section {
+      padding: 60px 0;
+    }
+
+    #star-rating {
+      font-size: 2rem;
+    }
+
+    .star {
+      cursor: pointer;
+      color: #ddd;
+      transition: color 0.2s;
+    }
+
+    .star:hover,
+    .star.selected {
+      color: #f39c12;
+    }
+
+    .star.hovered {
+      color: #f39c12;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-md navbar-light pt-5 pb-4">
+    <div class="container-xxl">
+      <a class="navbar-brand" href="index.html">
+        <img src="../Images/Logo.png" alt="Logo" class="img-fluid me-2" style="max-height: 200px;">
+      </a>
+      <span class="fs-5 fw-bold">
+        <a href="index.html" class="text-secondary" style="text-decoration: none;">Explore Scotland</a>
+      </span>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-end align-center" id="main-nav">
+        <ul class="navbar-nav">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="thingsToDoDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Things to do
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="thingsToDoDropdown">
+              <li><a class="dropdown-item" href="edinburghactivities.html">Edinburgh</a></li>
+              <li><a class="dropdown-item" href="glasgowactivities.html">Glasgow</a></li>
+              <li><a class="dropdown-item" href="aberdeenactivities.html">Aberdeen</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="placesToSeeDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Places to see
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="placesToSeeDropdown">
+              <li><a class="dropdown-item" href="edinburgh.html">Edinburgh</a></li>
+              <li><a class="dropdown-item" href="glasgow.html">Glasgow</a></li>
+              <li><a class="dropdown-item" href="aberdeen.html">Aberdeen</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Quizzes</a>
+          </li>
+          <li class="nav-item ms-2 d-none d-md-inline">
+            <a class="btn btn-secondary" href="login.html">Sign in</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Review Section -->
+  <section class="bg-light">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+          <div class="card shadow-lg p-4">
+            <h4 class="text-center mb-4">Leave a Review</h4>
+            <form action="reviewcomplete.html" method="GET">
+              <!-- Name Input -->
+              <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required>
+              </div>
+              <!-- Email Input -->
+              <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
+              </div>
+              <!-- Star Rating -->
+              <div class="mb-3">
+                <label for="rating" class="form-label">Rating</label>
+                <div id="star-rating" class="d-flex justify-content-center align-items-center">
+                  <span class="star" data-value="1">&#9733;</span>
+                  <span class="star" data-value="2">&#9733;</span>
+                  <span class="star" data-value="3">&#9733;</span>
+                  <span class="star" data-value="4">&#9733;</span>
+                  <span class="star" data-value="5">&#9733;</span>
+                </div>
+                <input type="hidden" id="rating" name="rating" value="0">
+              </div>
+              <!-- Review Textarea -->
+              <div class="mb-3">
+                <label for="review" class="form-label">Review</label>
+                <textarea class="form-control" id="review" name="review" rows="4" placeholder="Write your review here..." required></textarea>
+              </div>
+              <!-- Submit Button -->
+              <div class="d-grid">
+                <button type="submit" class="btn btn-primary">Submit Review</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-light text-dark py-3">
+    <div class="container">
+      <div class="text-center">
+        <h6>Follow Us</h6>
+        <div class="d-flex justify-content-center">
+          <a href="https://facebook.com" target="_blank" class="me-3" style="color: #3b5998;">
+            <i class="bi bi-facebook fs-5"></i>
+          </a>
+          <a href="https://twitter.com" target="_blank" class="me-3" style="color: #00acee;">
+            <i class="bi bi-twitter fs-5"></i>
+          </a>
+          <a href="https://instagram.com" target="_blank" style="color: #E1306C;">
+            <i class="bi bi-instagram fs-5"></i>
+          </a>
+        </div>
+      </div>
+      <div class="text-center mt-3">
+        <small>&copy; 2024 Explore Scotland by Group 3.</small>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNrdkXl58U8azP97wrCJCh8Sh4IYbE6i/1dB7j1L00frR59T3R8vyCIRfBaZXLE" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyq2zJ8MWFdhgLrp2o8KcT5q49Enr2ku1Awl3g9kMrC2K7bkt1GpXIM" crossorigin="anonymous"></script>
+
+  <!-- Star Rating JavaScript -->
+  <script>
+    const stars = document.querySelectorAll('.star');
+    const ratingInput = document.querySelector('#rating');
+
+    stars.forEach((star, index) => {
+      star.addEventListener('mouseover', () => {
+        stars.forEach((s, i) => {
+          if (i <= index) {
+            s.classList.add('hovered');
+          } else {
+            s.classList.remove('hovered');
+          }
+        });
+      });
+
+      star.addEventListener('mouseout', () => {
+        stars.forEach((s) => s.classList.remove('hovered'));
+      });
+
+      star.addEventListener('click', () => {
+        stars.forEach((s, i) => {
+          if (i <= index) {
+            s.classList.add('selected');
+          } else {
+            s.classList.remove('selected');
+          }
+        });
+        ratingInput.value = index + 1; // Save the rating value
+      });
+    });
+  </script>
+</body>
+</html>
