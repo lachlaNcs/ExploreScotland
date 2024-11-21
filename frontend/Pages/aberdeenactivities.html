@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aberdeen Activities - Explore Scotland</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/leaflet/dist/leaflet.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/leaflet/dist/leaflet.css" rel="stylesheet">
+  <style>
+    section {
+      padding: 60px 0;
+    }
+    #map {
+      height: 400px;
+    }
+    .activity-image {
+      max-height: 500px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+    .activity-section {
+      padding: 40px 0;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-md navbar-light">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="../Images/Logo.png" alt="Logo" class="img-fluid me-2" style="max-height: 80px;">
+        <span class="fw-bold text-secondary">Explore Scotland</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="main-nav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="edinburgh.html">Edinburgh</a></li>
+          <li class="nav-item"><a class="nav-link" href="glasgow.html">Glasgow</a></li>
+          <li class="nav-item"><a class="nav-link active" href="aberdeen.html">Aberdeen</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section id="activities" class="bg-light">
+    <div class="container-lg">
+      <div class="text-center">
+        <h2>Activities in Aberdeen</h2>
+        <p class="lead text-muted">Discover some of the best things to do in Aberdeen!</p>
+      </div>
+
+      <!-- Aberdeen Beach -->
+      <div class="row activity-section">
+        <div class="col-lg-6">
+          <img src="../Images/aberdeen/aberdeenbeach.webp" class="activity-image w-100 shadow-sm" alt="Aberdeen Beach">
+        </div>
+        <div class="col-lg-6 d-flex align-items-center">
+          <div>
+            <h3>Aberdeen Beach</h3>
+            <p class="text-muted">Enjoy the scenic views of the North Sea at Aberdeen Beach. Perfect for a family day out, it offers a leisurely promenade, a sandy beach, and numerous cafes.</p>
+            <a href="https://www.visitscotland.com/info/see-do/aberdeen-beach-p2555521" target="_blank" class="btn btn-outline-secondary">Learn More</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Marischal College -->
+      <div class="row activity-section flex-lg-row-reverse">
+        <div class="col-lg-6">
+          <img src="../Images/aberdeen/college.jpg" class="activity-image w-100 shadow-sm" alt="Marischal College">
+        </div>
+        <div class="col-lg-6 d-flex align-items-center">
+          <div>
+            <h3>Marischal College</h3>
+            <p class="text-muted">Visit Marischal College, the second largest granite building in the world and a part of the University of Aberdeen. Explore its Gothic architecture and significant history.</p>
+            <a href="https://www.abdn.ac.uk/about/campus/marischal-college-394.php" target="_blank" class="btn btn-outline-secondary">Learn More</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Union Terrace Gardens -->
+      <div class="row activity-section">
+        <div class="col-lg-6">
+          <img src="../Images/aberdeen/unionterrace.jpg" class="activity-image w-100 shadow-sm" alt="Union Terrace Gardens">
+        </div>
+        <div class="col-lg-6 d-flex align-items-center">
+          <div>
+            <h3>Union Terrace Gardens</h3>
+            <p class="text-muted">Union Terrace Gardens offer a serene green space in the heart of Aberdeen. This historic park is surrounded by iconic buildings and is a popular spot for relaxation and events.</p>
+            <a href="https://www.aberdeencity.gov.uk/services/leisure-culture-and-parks/parks-and-gardens/union-terrace-gardens" target="_blank" class="btn btn-outline-secondary">Learn More</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- St Machar's Cathedral -->
+      <div class="row activity-section flex-lg-row-reverse">
+        <div class="col-lg-6">
+          <img src="../Images/aberdeen/cathedral.jpg" class="activity-image w-100 shadow-sm" alt="St Machar's Cathedral">
+        </div>
+        <div class="col-lg-6 d-flex align-items-center">
+          <div>
+            <h3>St Machar's Cathedral</h3>
+            <p class="text-muted">St Machar's Cathedral is a historic church located in Old Aberdeen. It's renowned for its stunning architecture and its unique heraldic ceiling, dating back to the 16th century.</p>
+            <a href="https://www.stmachar.com" target="_blank" class="btn btn-outline-secondary">Learn More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="map-section">
+    <div class="container-lg">
+      <div class="text-center mb-4">
+        <h2>Find These Activities on the Map</h2>
+        <p class="lead text-muted">See where you can experience these incredible places in Aberdeen.</p>
+      </div>
+      <div id="map" class="rounded"></div>
+    </div>
+  </section>
+
+    <!-- footer -->
+    <footer class="bg-light text-dark py-3">
+        <div class="container text-center">
+          <h6>Follow Us</h6>
+          <div class="d-flex justify-content-center">
+            <a href="https://facebook.com" target="_blank" class="me-3" style="color: #3b5998;">
+              <i class="bi bi-facebook fs-5"></i>
+            </a>
+            <a href="https://twitter.com" target="_blank" class="me-3" style="color: #00acee;">
+              <i the "bi bi-twitter fs-5"></i>
+            </a>
+            <a href="https://instagram.com" target="_blank" style="color: #E1306C;">
+              <i class="bi bi-instagram fs-5"></i>
+            </a>
+          </div>
+          <div class="mt-3">
+            <small>&copy; 2024 Explore Scotland by Group 3.</small>
+          </div>
+        </div>
+      </footer>
+
+  <script>
+    const map = L.map('map').setView([57.1497, -2.0943], 13);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+    }).addTo(map);
+  </script>
+</body>
+</html>
