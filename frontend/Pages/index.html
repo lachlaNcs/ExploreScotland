@@ -11,6 +11,23 @@
     section{
       padding: 60px 0;
     }
+    .carousel-indicators {
+    bottom: -30px; /* Move the indicators down */
+  }
+
+  .carousel-indicators .active {
+    background-color: #6c757d; /* Match the muted text color */
+  }
+
+  .carousel-indicators button {
+    background-color: #d6d6d6; /* Default indicator color */
+  }
+
+  .carousel-indicators button:hover,
+  .carousel-indicators button:focus {
+    background-color: #6c757d; /* Indicator hover color */
+  }
+
   </style>
 </head>
 <body>
@@ -147,6 +164,79 @@
       
     </div>
   </section>
+
+  <!-- Reviews Carousel -->
+<section id="reviews" class="py-5">
+  <div class="container-lg">
+    <div class="text-center mb-4">
+      <h2 class="text-dark">What People Are Saying</h2>
+      <p class="lead text-muted">See reviews from our users</p>
+    </div>
+
+    <div id="reviewsCarousel" class="carousel slide" data-bs-ride="carousel">
+      <!-- Indicators -->
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#reviewsCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#reviewsCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#reviewsCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+
+      <!-- review carousel -->
+      <div class="carousel-inner">
+        <!-- review 1 -->
+        <div class="carousel-item active">
+          <div class="d-flex flex-column align-items-center">
+            <img src="../Images/profilepicture.jpg" class="rounded-circle mb-3" alt="Asma's Profile Picture" style="width: 100px; height: 100px;">
+            <h4 class="text-dark mb-2">Asma</h4>
+            <p class="lead text-muted text-center px-3">"Explore Scotland provided the best recommendations for my trip to Edinburgh. Highly recommended!"</p>
+          </div>
+        </div>
+        <!-- review 2 -->
+        <div class="carousel-item">
+          <div class="d-flex flex-column align-items-center">
+            <img src="../Images/profilepicture.jpg" class="rounded-circle mb-3" alt="Mark's Profile Picture" style="width: 100px; height: 100px;">
+            <h4 class="text-dark mb-2">Mark</h4>
+            <p class="lead text-muted text-center px-3">"The website made exploring Glasgow a breeze. I loved the detailed activity recommendations!"</p>
+          </div>
+        </div>
+        <!-- review 3 -->
+        <div class="carousel-item">
+          <div class="d-flex flex-column align-items-center">
+            <img src="../Images/profilepicture.jpg" class="rounded-circle mb-3" alt="Shane's Profile Picture" style="width: 100px; height: 100px;">
+            <h4 class="text-dark mb-2">Shane</h4>
+            <p class="lead text-muted text-center px-3">"Aberdeen's hidden gems were so easy to discover thanks to this amazing site. Great job, team!"</p>
+          </div>
+        </div>
+        <!-- review 4 -->
+        <div class="carousel-item">
+          <div class="d-flex flex-column align-items-center">
+            <img src="../Images/profilepicture.jpg" class="rounded-circle mb-3" alt="Jagpal's Profile Picture" style="width: 100px; height: 100px;">
+            <h4 class="text-dark mb-2">Jagpal</h4>
+            <p class="lead text-muted text-center px-3">"I especially enjoyed the user-friendly interface and the insightful recommendations. Will use again!"</p>
+          </div>
+        </div>
+        <!-- review 5-->
+        <div class="carousel-item">
+          <div class="d-flex flex-column align-items-center">
+            <img src="../Images/profilepicture.jpg" class="rounded-circle mb-3" alt="Mark's Profile Picture" style="width: 100px; height: 100px;">
+            <h4 class="text-dark mb-2">Kevin</h4>
+            <p class="lead text-muted text-center px-3">"The detailed descriptions of places helped me plan an unforgettable trip to Scotland. Thank you!"</p>
+          </div>        
+        </div>
+
+      <!-- Controls -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#reviewsCarousel" data-bs-slide="prev" style="bottom: -30px;">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#reviewsCarousel" data-bs-slide="next" style="bottom: -30px;">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+</section>
+
   
   <!-- contact form -->
   <section id="contact">
@@ -214,11 +304,6 @@
             <i class="bi bi-instagram fs-5"></i>
           </a>
         </div>
-      </div>
-      <div class="text-center mt-3">
-        <a href="Review.html" style="text-decoration: none; color: #007bff;">Leave us a review</a>
-        <br>
-        <small>&copy; 2024 Explore Scotland by Group 3.</small>
       </div>
     </div>
   </footer>
